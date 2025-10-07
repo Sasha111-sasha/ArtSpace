@@ -148,3 +148,36 @@ header {
     color: #d2691e;
     font-size: 18px;
 }
+/* --- Footer --- */
+footer {
+    background-color: #fff5f0;
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    margin-top: 40px;
+}
+
+.footer-content p {
+    margin: 0 0 10px 0;
+    color: #6b4226;
+    font-size: 16px;
+}
+
+.footer-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li a {
+    text-decoration: none;
+    color: #6b4226;
+    transition: color 0.3s;
+}
+
+.footer-menu li a:hover {
+    color: #d2691e;
+}
