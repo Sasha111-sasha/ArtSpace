@@ -4,7 +4,6 @@ body {
     background-color: #fdf6f0;
     color: #333;
 }
-
 /* Header */
 header {
     display: flex;
@@ -36,12 +35,10 @@ header {
     background-color: #6b4226;
     border-radius: 2px;
 }
-
 /* Checkbox приховуємо */
 .burger-toggle {
     display: none;
 }
-
 /* Меню */
 .menu {
     list-style: none;
@@ -62,7 +59,6 @@ header {
     font-size: 20px;
     color: #d2691e;
 }
-
 /* --- Адаптивність для бургер-меню --- */
 @media (max-width: 768px) {
     .menu {
@@ -78,7 +74,6 @@ header {
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         z-index: 1000;
     }
-
     /* Коли checkbox активний, показуємо меню */
     .burger-toggle:checked ~ .menu {
         display: flex;
