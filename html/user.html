@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Профіль покупця | ArtSpace</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">"ArtSpace" - онлайн-магазин картин</div>
+    <nav>
+      <input type="checkbox" id="burger-toggle" class="burger-toggle" />
+      <label for="burger-toggle" class="burger">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="catalog.html">Каталог картин</a></li>
+        <li><a href="artist.html">Митці</a></li>
+        <li><a href="about.html">Про нас</a></li>
+        <li><a href="user.html" class="active">Профіль</a></li>
+        <li><a href="index.html" onclick="logout()">Вийти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   <main class="profile-main">
+    <section class="profile-info">
+      <div class="profile-photo-container">
+        <img src="../assets/photo_2025-10-24_14-58-15.jpg"/>
+      </div>
+      <div class="info-block">
+        <h3>Особиста інформація</h3>
+        <p><b>Ім'я:</b> Оксана Петрівна</p>
+        <p><b>Email:</b> oksana@example.com</p>
+        <p><b>Телефон:</b> +380 67 123 4567</p>
+      </div>
+      <div class="info-block">
+        <h3>Замовлення</h3>
+        <ul class="orders-list">
+          <li>
+            <button class="order-btn">Замовлення #1</button>
+            <ul class="order-status-list">
+              <li class="status confirmed">Підтверджено</li>
+              <li class="status shipped">В дорозі</li>
+              <li class="status arrived">Доставка прибула у відділення</li>
+              <li class="status completed">Замовлення завершено</li>
+            </ul>
+          </li>
+          <li>
+            <button class="order-btn">Замовлення #2</button>
+            <ul class="order-status-list">
+              <li class="status confirmed">Підтверджено</li>
+              <li class="status shipped">В дорозі</li>
+              <li class="status arrived">Доставка прибула у відділення</li>
+            </ul>
+          </li>
+          <li>
+            <button class="order-btn">Замовлення #3</button>
+            <ul class="order-status-list">
+              <li class="status confirmed">Підтверджено</li>
+              <li class="status completed">Замовлення завершено</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 "ArtSpace" - Онлайн магазин картин</p>
+      <ul class="footer-menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="about.html">Про нас</a></li>
+        <li><a href="about.html">Контакти</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
