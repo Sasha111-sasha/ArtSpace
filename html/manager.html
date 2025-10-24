@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Менеджер | ArtSpace</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">"ArtSpace" - Панель менеджера</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="catalog.html">Каталог картин</a></li>
+        <li><a href="artists.html">Митці</a></li>
+        <li><a href="about.html">Про нас</a></li>
+        <li><a href="index.html">Вийти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="manager-main">
+    <section class="orders-section">
+      <h2>Обробка замовлень</h2>
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Клієнт</th>
+            <th>Статус</th>
+            <th>Оплата</th>
+            <th>Доставка</th>
+            <th>Дія</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Оксана Петрівна</td>
+            <td>Очікує підтвердження</td>
+            <td>Очікує оплату</td>
+            <td>Нова пошта/Самовивіз</td>
+            <td>
+              <form action="/update-order" method="post" style="display:inline;">
+                <input type="hidden" name="orderId" value="1" />
+                <input type="hidden" name="action" value="confirm" />
+                <button type="submit">Підтвердити</button>
+              </form>
+              <form action="/update-order" method="post" style="display:inline;">
+                <input type="hidden" name="orderId" value="1" />
+                <input type="hidden" name="action" value="paid" />
+                <button type="submit">Оплачено</button>
+              </form>
+              <form action="/update-order" method="post" style="display:inline;">
+                <input type="hidden" name="orderId" value="1" />
+                <input type="hidden" name="action" value="dispatch" />
+                <button type="submit">Відправлено</button>
+              </form>
+              <form action="/update-order" method="post" style="display:inline;">
+                <input type="hidden" name="orderId" value="1" />
+                <input type="hidden" name="action" value="arrived" />
+                <button type="submit">Прибула</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 "ArtSpace" - Панель менеджера</p>
+  </footer>
+</body>
+</html>
