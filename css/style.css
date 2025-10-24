@@ -227,3 +227,205 @@ footer {
 .footer-menu li a:hover {
     color: #d2691e;
 }
+
+
+/* --- Частина A: первинні стилі (з твого першого блоку) --- */
+body {
+  background-color: #f4e3d5;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.form-wrapper {
+  max-width: 400px;
+  margin: 80px auto;
+  background-color: #fff5f0;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+h2 {
+  color: #d2691e;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  text-align: left;
+  color: #6b4226;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #dcbfa6;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #b85b1a;
+  transform: scale(1.03);
+}
+
+.toggle {
+  margin-top: 15px;
+  color: #6b4226;
+}
+
+.toggle a {
+  color: #d2691e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.toggle a:hover {
+  text-decoration: underline;
+}
+
+.register-form {
+  display: none;
+}
+
+/* --- Частина B: додаткові/альтернативні стилі (з твого другого блоку) --- */
+/* --- Проста форма реєстрації чи входу --- */
+.form-container {
+  max-width: 380px;
+  margin: 100px auto;
+  background-color: #fff5f0;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.form-container h2 {
+  color: #d2691e;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box label {
+  text-align: left;
+  color: #6b4226;
+  font-weight: bold;
+}
+
+.form-box input {
+  padding: 10px;
+  border: 1px solid #dcbfa6;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.btn {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #b85b1a;
+  transform: scale(1.03);
+}
+
+.message {
+  margin-top: 10px;
+  color: #6b4226;
+}
+
+.message a {
+  color: #d2691e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.message a:hover {
+  text-decoration: underline;
+}
+
+/* --- Модальне вікно --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background: #fff5f0;
+  margin: 100px auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  position: relative;
+  font-family: 'Times New Roman', Times, serif;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background: #d2691e;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+}
+.modal-content button:hover {
+  background: #b85b1a;
+}
+
+.toggle {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.toggle a {
+  color: #d2691e;
+  text-decoration: none;
+}
+.register-form {
+  display: none;
+}
