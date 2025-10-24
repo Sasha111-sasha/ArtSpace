@@ -758,3 +758,66 @@ button:hover {
     width: 90%;
   }
 }
+
+
+.admin-main {
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #fff9f4;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(210, 105, 30, 0.2);
+  font-family: 'Times New Roman', Times, serif;
+  color: #5b3a00;
+}
+
+h2, h3 {
+  color: #d2691e;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.monitoring-info p {
+  font-size: 18px;
+  margin: 8px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.management {
+  margin-top: 40px;
+}
+
+.user-table, .artist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.user-table th, .user-table td, .artist-table th, .artist-table td {
+  border: 1px solid #deb887;
+  padding: 10px 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.user-table th, .artist-table th {
+  background-color: #f5deb3;
+  color: #874600;
+}
+
+button {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b85b1a;
+}
