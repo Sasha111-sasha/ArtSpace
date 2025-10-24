@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Адміністратор | ArtSpace</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">"ArtSpace" - Адміністративна панель</div>
+    <nav>
+      <input type="checkbox" id="burger-toggle" class="burger-toggle" />
+      <label for="burger-toggle" class="burger">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="admin.html" class="active">Адміністратор</a></li>
+        <li><a href="user.html">Профіль користувача</a></li>
+        <li><a href="artist.html">Профіль митця</a></li>
+        <li><a href="index.html" onclick="logout()">Вийти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section class="dashboard">
+      <h2>Панель моніторингу сайту</h2>
+      
+      <div class="monitoring-info">
+        <p><strong>Кількість користувачів:</strong>2</p>
+        <p><strong>Митців:</strong> 1</p>
+        <p><strong>Активних замовлень:</strong> 0</p>
+        <p><strong>Загальний дохід:</strong> 0</p>
+      </div>
+    </section>
+
+    <section class="management">
+      <h3>Керування користувачами</h3>
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Ім'я</th><th>Email</th><th>Роль</th><th>Дія</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td>Оксана Петрівна</td><td>oksana@example.com</td><td>Покупець</td>
+            <td><button onclick="alert('Редагувати користувача 1')">Редагувати</button></td>
+          </tr>
+          <!-- інші користувачі -->
+        </tbody>
+      </table>
+
+      <h3>Керування митцями</h3>
+      <table class="artist-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Ім'я митця</th><th>Email</th><th>Статус</th><th>Дія</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td><td>Токаренко Олександра</td><td>sasha.tokaren@gmail.com</td><td>Активний</td>
+            <td><button onclick="alert('Редагувати митця 101')">Редагувати</button></td>
+          </tr>
+          
+          <!-- інші митці -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 "ArtSpace" - Адміністратор</p>
+    </div>
+  </footer>
+</body>
+</html>
