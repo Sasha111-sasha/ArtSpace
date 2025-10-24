@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtSpace | Вхід та реєстрація</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <!-- Форма входу -->
+    <div class="login-form" id="login">
+      <h2>Вхід</h2>
+      <form>
+        <label for="login-email">Електронна пошта:</label>
+        <input type="email" id="login-email" placeholder="Введіть email" required>
+
+        <label for="login-password">Пароль:</label>
+        <input type="password" id="login-password" placeholder="Введіть пароль" required>
+
+        <button type="submit">Увійти</button>
+
+        <p class="toggle">Немає акаунту? <a href="#" onclick="showRegister()">Зареєструйтесь</a></p>
+      </form>
+    </div>
+
+    <!-- Форма реєстрації -->
+    <div class="register-form" id="register">
+      <h2>Реєстрація</h2>
+      <form>
+        <label for="name">Ім’я:</label>
+        <input type="text" id="name" placeholder="Введіть ім’я" required>
+
+        <label for="surname">Прізвище:</label>
+        <input type="text" id="surname" placeholder="Введіть прізвище" required>
+
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" placeholder="Введіть email" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" placeholder="Введіть пароль" required>
+
+        <label for="confirm">Підтвердіть пароль:</label>
+        <input type="password" id="confirm" placeholder="Повторіть пароль" required>
+
+        <button type="submit">Зареєструватися</button>
+
+        <p class="toggle">Вже маєте акаунт? <a href="#" onclick="showLogin()">Увійдіть</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showRegister() {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('register').style.display = 'block';
+    }
+
+    function showLogin() {
+      document.getElementById('register').style.display = 'none';
+      document.getElementById('login').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
