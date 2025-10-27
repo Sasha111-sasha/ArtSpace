@@ -315,3 +315,74 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     margin-bottom: 15px;
     font-size: 22px;
 }
+/* ================= ARTIST ================= */
+.artist-main {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff5f0;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.artist-info {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+.artist-photo-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #d2691e;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff5f0;
+    box-shadow: 0 0 10px rgba(210,105,30,0.6);
+    position: relative;
+}
+
+.artist-photo-container img { max-width: 100%; max-height: 100%; display: block; }
+
+.artist-photo-text {
+    position: absolute;
+    color: #d2691e;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* ================= PORTFOLIO ================= */
+.portfolio-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.portfolio-item {
+    background: #fff7f2;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    width: 260px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover { transform: translateY(-5px); }
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.portfolio-item h4 { color: #d2691e; font-size: 20px; font-weight: 600; margin: 0 0 10px 0; }
+.portfolio-item p { font-size: 15px; color: #6b4226; line-height: 1.3; margin: 4px 0; }
