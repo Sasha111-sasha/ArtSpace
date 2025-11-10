@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер замовлень — ArtSpace</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">"ArtSpace" - онлайн-магазин картин</div>
+    <nav>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="menu">
+            <li><a href="manager.html" class="active">Менеджер</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="manager-container">
+        <h2>Обробка замовлень</h2>
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Користувач</th>
+                    <th>Товари</th>
+                    <th>Сума</th>
+                    <th>Статус оплати</th>
+                    <th>Статус замовлення</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Оксана Петрівна</td>
+                    <td>Бузок, Натюрморт</td>
+                    <td>4500 грн</td>
+                    <td class="status unpaid">Очікує оплату</td>
+                    <td class="status new">Нове</td>
+                    <td>
+                        <button class="btn-edit">Підтвердити оплату</button>
+                        <button class="btn-add" disabled>Передати на доставку</button>
+                        <button class="btn-delete">Скасувати</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn-add new-order">Додати нове замовлення</button>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p class="footer-description">ArtSpace — онлайн-магазин картин.</p>
+        <p class="footer-contact">Телефон: +380 99 123 45 67 | Email: info@artspace.com</p>
+        <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
+    </div>
+</footer>
+</body>
+</html>
