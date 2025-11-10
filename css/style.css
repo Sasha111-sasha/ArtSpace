@@ -80,3 +80,89 @@ header {
         z-index: 1001;
     }
 }
+/* ================= GALLERY ================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+.card {
+    background: #fff5f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    animation: appear 1s forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card img {
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.details-link {
+    display: inline-block;
+    margin: 10px 0 5px;
+    text-decoration: none;
+    color: #6b4226;
+    font-weight: bold;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.details-link:hover {
+    font-size: 20px;
+    color: #d2691e;
+}
+
+.card h3 {
+    margin: 5px 0 12px;
+    color: #d2691e;
+    font-size: 18px;
+}
+/* Контейнер кнопок під карткою */
+.card-buttons {
+  display: flex;
+  gap: 10px; /* Відстань між кнопками */
+  margin-top: 10px;
+}
+
+/* Стиль кнопок: Деталі і Додати в кошик */
+.details-link,
+.cart-link {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #6b4226;
+  font-weight: bold;
+  transition: font-size 0.3s, color 0.3s;
+  text-align: center;
+}
+
+/* Hover ефект для обох кнопок */
+.details-link:hover,
+.cart-link:hover {
+  font-size: 20px;
+  color: #d2691e;
+}
