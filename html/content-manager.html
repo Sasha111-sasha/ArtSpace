@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель контент-менеджера — ArtSpace</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">"ArtSpace" - онлайн-магазин картин</div>
+    <nav>
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="menu">
+        <li><a href="manager.html" class="active">Контент-менеджер</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="manager-main">
+    <h1>Панель контент-менеджера</h1>
+    <button class="add-btn">+ Додати нову картину</button>
+
+    <table class="art-table">
+      <thead>
+        <tr>
+          <th>Фото</th>
+          <th>Назва</th>
+          <th>Опис</th>
+          <th>Жанр</th>
+          <th>Ціна</th>
+          <th>Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="../assets/photo_2025-10-24_12-46-02.jpg" alt="Бузок"></td>
+          <td>Бузок</td>
+          <td>Ніжний весняний букет бузку у вазі.</td>
+          <td>Натюрморт</td>
+          <td>1 200 грн</td>
+          <td>
+            <button class="edit-btn">Редагувати</button>
+            <button class="delete-btn">Видалити</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="../assets/photo_2025-10-24_12-46-12.jpg" alt="Натюрморт із фруктами та келихом"></td>
+          <td>Натюрморт із фруктами та келихом</td>
+          <td>Класичний натюрморт з виноградом та вином.</td>
+          <td>Натюрморт</td>
+          <td>1 800 грн</td>
+          <td>
+            <button class="edit-btn">Редагувати</button>
+            <button class="delete-btn">Видалити</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="../assets/photo_2025-10-24_12-46-18.jpg" alt="Літній пейзаж"></td>
+          <td>Літній пейзаж</td>
+          <td>Світла картина з видом на зелену долину.</td>
+          <td>Пейзаж</td>
+          <td>2 500 грн</td>
+          <td>
+            <button class="edit-btn">Редагувати</button>
+            <button class="delete-btn">Видалити</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p class="footer-description">ArtSpace — онлайн-магазин картин.</p>
+      <p class="footer-contact">Телефон: +380 99 123 45 67 | Email: info@artspace.com</p>
+      <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
+    </div>
+  </footer>
+</body>
+</html>
