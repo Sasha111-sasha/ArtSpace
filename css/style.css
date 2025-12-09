@@ -166,3 +166,38 @@ header {
   font-size: 20px;
   color: #d2691e;
 }
+footer {
+    background-color: #fff5f0;
+    padding: 25px 20px;
+    text-align: center;
+    color: #6b4226;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-description {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-contact {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+.footer-copy {
+    margin: 0;
+    font-size: 12px;
+    color: #8b4513;
+}
+
+.footer-content a {
+    color: #d2691e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    color: #8b4513;
+}
