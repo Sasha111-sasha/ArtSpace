@@ -1,0 +1,82 @@
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff5f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d2691e;
+}
+
+/* ---------------- MENU ---------------- */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #6b4226;
+    font-size: 18px;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+    font-size: 20px;
+    color: #d2691e;
+}
+
+/* ---------------- BURGER ---------------- */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #6b4226;
+    border-radius: 2px;
+}
+
+.burger-toggle {
+    display: none;
+}
+
+/* --------- BURGER ADAPTIVE --------- */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #fff5f0;
+        position: absolute;
+        top: 70px;
+        right: 40px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+    .burger-toggle:checked ~ .menu {
+        display: flex;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+    .burger {
+        display: flex;
+        z-index: 1001;
+    }
+}
