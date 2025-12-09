@@ -381,3 +381,104 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     width: 100%;
   }
 }
+/* ================= MANAGER PAGE ================= */
+.manager-main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff5f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Times New Roman', serif;
+  text-align: center;
+}
+
+.manager-main h1 {
+  color: #d2691e;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.add-btn {
+  background-color: #d2691e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-bottom: 25px;
+}
+
+.add-btn:hover {
+  background-color: #b85b1a;
+  transform: scale(1.03);
+}
+
+/* Таблиця */
+.art-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.art-table th, .art-table td {
+  padding: 12px 15px;
+  border: 1px solid #e0cfc0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.art-table th {
+  background-color: #ffe5d4;
+  color: #6b4226;
+  font-size: 18px;
+}
+
+.art-table td {
+  font-size: 16px;
+  color: #4a2f1b;
+}
+
+/* Фото */
+.art-table img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain; /* показує всю картину повністю */
+  background-color: #fffaf5; /* ніжний фон, якщо картина не займає всю рамку */
+  border: 2px solid #dcbfa6;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 5px; /* невеликий відступ всередині рамки */
+}
+
+/* Кнопки */
+.edit-btn, .delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 2px;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background-color: #ffa94d;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #e6891d;
+}
+
+.delete-btn {
+  background-color: #e63946;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c92432;
+}
