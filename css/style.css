@@ -656,3 +656,101 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     border-color: #d2691e;
     box-shadow: 0 0 5px rgba(210,105,30,0.3);
 }
+/* ================= ADMIN ================= */
+.admin-main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Статистика */
+.stats h2 {
+    color: #d2691e;
+    margin-bottom: 15px;
+}
+.stats-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    flex: 1;
+    min-width: 220px;
+    background: #fff5f0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.stat-card h3 {
+    color: #6b4226;
+    margin-bottom: 10px;
+}
+.stat-card p {
+    font-size: 24px;
+    color: #d2691e;
+    font-weight: bold;
+}
+
+/* Керування користувачами */
+.users-management h2 {
+    color: #d2691e;
+    margin-bottom: 15px;
+}
+.users-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.users-management th, .users-management td {
+    border: 1px solid #dcbfa6;
+    padding: 12px;
+    text-align: center;
+    color: #6b4226;
+}
+.users-management th {
+    background-color: #fff5f0;
+}
+.user-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Кнопки */
+.btn-edit, .btn-delete, .btn-add {
+    background-color: #d2691e;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 2px;
+}
+.btn-edit:hover { background-color: #b85b1a; transform: scale(1.05); }
+.btn-delete:hover { background-color: #8b4513; transform: scale(1.05); }
+.btn-add {
+    display: inline-block;
+    margin-top: 10px;
+}
+.btn-add:hover { background-color: #b85b1a; transform: scale(1.05); }
+
+/* Лог активності */
+.activity-log h2 {
+    color: #d2691e;
+    margin-bottom: 10px;
+}
+.activity-log ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.activity-log li {
+    margin-bottom: 6px;
+    color: #6b4226;
+}
