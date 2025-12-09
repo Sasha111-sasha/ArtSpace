@@ -5,46 +5,309 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Профіль користувача — ArtSpace</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ===== Фотографія профілю ===== */
+    .profile-photo { width: 160px; height: 160px; border: 4px solid #d2691e; border-radius: 50%; overflow: hidden; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background-color: #fff7f2; }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ===== Основний блок профілю ===== */
+    .profile-main { display: flex; justify-content: center; padding: 50px 20px; }
+    .profile-card { background: #fff5f0; display: flex; gap: 40px; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); max-width: 900px; width: 100%; flex-wrap: wrap; }
+    .profile-left { flex: 1; text-align: center; }
+    .user-name { font-size: 22px; margin-bottom: 5px; color: #6b4226; }
+    .user-role { font-size: 16px; color: #d2691e; margin-bottom: 20px; }
+    .btn-edit { padding: 10px 20px; border: none; border-radius: 8px; background: #d2691e; color: #fff; font-weight: 600; cursor: pointer; transition: 0.3s; }
+    .btn-edit:hover { background: #b85b1a; }
+
+    .profile-right { flex: 2; }
+    .info-box { background: #fff7f2; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+    .info-box h3 { margin-bottom: 15px; color: #d2691e; }
+    .info-box p { margin-bottom: 10px; font-size: 15px; color: #6b4226; }
+
+    /* ===== Форма редагування ===== */
+    #editFormSection { background: #fff5f0; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 20px; transition: all 0.3s ease; }
+    #editFormSection label { display: block; margin: 12px 0 5px; font-weight: 500; color: #6b4226; }
+    #editFormSection input[type="text"], #editFormSection input[type="email"], #editFormSection input[type="file"] { width: 100%; padding: 10px 12px; border: 1px solid #dcbfa6; border-radius: 8px; transition: 0.2s; margin-bottom: 5px; font-size: 14px; }
+    #editFormSection input:focus { border-color: #d2691e; outline: none; }
+
+    .field-error { color: #e63946; font-size: 13px; margin-bottom: 5px; min-height: 16px; }
+    .error-input { border-color: #e63946 !important; }
+    .success-input { border-color: #2a9d8f !important; }
+
+    .edit-buttons { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: flex-start; }
+    .edit-buttons button { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; }
+    .edit-buttons button[type="submit"] { background: #d2691e; color: #fff; }
+    .edit-buttons button[type="submit"]:hover { background: #b85b1a; }
+    .edit-buttons button#cancelEditBtn { background: #e63946; color: #fff; }
+    .edit-buttons button#cancelEditBtn:hover { background: #c92432; }
+
+    #changePhotoBtn { padding: 8px 15px; border: none; border-radius: 8px; background: #d2691e; color: #fff; font-size: 14px; cursor: pointer; margin-top: 5px; transition: 0.3s; }
+    #changePhotoBtn:hover { background: #b85b1a; }
+
+    /* ===== Footer ===== */
+    footer { text-align: center; padding: 25px 15px; background: #fff5f0; margin-top: 40px; box-shadow: 0 -2px 6px rgba(0,0,0,0.05); color: #6b4226; }
+    footer p { margin-bottom: 5px; font-size: 14px; }
+
+    /* ===== Адаптив ===== */
+    @media (max-width: 768px) { .profile-card { flex-direction: column; } .profile-left, .profile-right { width: 100%; text-align: center; } .profile-right { margin-top: 20px; } }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">ArtSpace</div>
-    <nav>
-      <ul class="menu">
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="user.html" class="active">Мій профіль</a></li>
-        <li><a href="index.html">Вийти</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo">ArtSpace</div>
+  <nav>
+    <ul class="menu">
+      <li><a href="catalog.html">Каталог</a></li>
+      <li><a href="user.html" class="active">Мій профіль</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main class="profile-main">
-    <section class="profile-card">
-      <div class="profile-left">
-        <div class="profile-photo">
-          <img src="../assets/photo_2025-10-24_14-58-15.jpg">
-        </div>
-        <h2 class="user-name">Оксана Петрівна</h2>
-        <p class="user-role">Покупець</p>
-        <a href="cart.html" class="btn-cart">Перейти до кошика</a>
+<main class="profile-main">
+  <section class="profile-card">
+    <div class="profile-left">
+      <div class="profile-photo">
+        <img id="profilePhoto" src="../assets/default-avatar.jpg" alt="">
       </div>
-
-      <div class="profile-right">
-        <div class="info-box">
-          <h3>Контактна інформація</h3>
-          <p><b>Email:</b> oksana@example.com</p>
-          <p><b>Телефон:</b> +380 67 123 4567</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p class="footer-description">ArtSpace — онлайн-магазин картин.</p>
-      <p class="footer-contact">Телефон: +380 99 123 45 67 | Email: info@artspace.com</p>
-      <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
+      <h2 id="userName" class="user-name">Ім’я Прізвище</h2>
+      <p id="userRole" class="user-role">Користувач</p>
+      <button id="editProfileBtn" class="btn-edit">Редагувати профіль</button>
     </div>
-  </footer>
+
+    <div class="profile-right">
+      <div class="info-box">
+        <h3>Контактна інформація</h3>
+        <p><b>Email:</b> <span id="userEmail">-</span></p>
+        <p><b>Телефон:</b> <span id="userPhone">-</span></p>
+      </div>
+
+      <div id="editFormSection" style="display:none;">
+        <form id="profileForm">
+          <label>Ім’я:</label>
+          <input type="text" id="editFirstName" required>
+          <div class="field-error"></div>
+
+          <label>Прізвище:</label>
+          <input type="text" id="editLastName" required>
+          <div class="field-error"></div>
+
+          <label>Email:</label>
+          <input type="email" id="editEmail" required>
+          <div class="field-error"></div>
+
+          <label>Телефон:</label>
+          <input type="text" id="editPhone" placeholder="+380XXXXXXXXX">
+          <div class="field-error"></div>
+
+          <label>Змінити фото:</label>
+          <input type="file" id="photoInput" style="display:none;">
+          <button type="button" id="changePhotoBtn">Завантажити фото</button>
+
+          <div class="edit-buttons">
+            <button type="submit">Зберегти</button>
+            <button type="button" id="cancelEditBtn">Скасувати</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p class="footer-description">ArtSpace — онлайн-магазин картин.</p>
+    <p class="footer-contact">Телефон: +380 99 123 45 67 | Email: info@artspace.com</p>
+    <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+
+    // =================== 🔒 Авторизація та доступ ===================
+    const token = localStorage.getItem('artspace_token');
+    const user = JSON.parse(localStorage.getItem('artspace_user') || '{}');
+    const roleId = user.roleId || 0;
+
+    function clearAuth() {
+        localStorage.removeItem('artspace_token');
+        localStorage.removeItem('artspace_user');
+    }
+
+    // якщо токена нема – на логін
+    if (!token) {
+        alert("🔒 Спочатку увійдіть у систему");
+        return window.location.href = '/login.html';
+    }
+
+    // Дозволені ролі для user.html
+    const allowedRoles = [1, 2, 3, 4];
+
+    // Якщо сторінка user.html і роль не дозволена → назад на index
+    if (!allowedRoles.includes(roleId)) {
+        alert("⛔ У вас немає доступу до цієї сторінки\n\n🔒 Перевірка ролі користувача");
+        clearAuth();
+        return window.location.href = "/index.html";
+    }
+
+    // =================== 🧩 Робота з профілем ===================
+    const elements = {
+        profilePhoto: document.getElementById('profilePhoto'),
+        userName: document.getElementById('userName'),
+        userEmail: document.getElementById('userEmail'),
+        userPhone: document.getElementById('userPhone'),
+        userRole: document.getElementById('userRole'),
+        editProfileBtn: document.getElementById('editProfileBtn'),
+        editFormSection: document.getElementById('editFormSection'),
+        cancelEditBtn: document.getElementById('cancelEditBtn'),
+        profileForm: document.getElementById('profileForm'),
+        firstNameInput: document.getElementById('editFirstName'),
+        lastNameInput: document.getElementById('editLastName'),
+        emailInput: document.getElementById('editEmail'),
+        phoneInput: document.getElementById('editPhone'),
+        changePhotoBtn: document.getElementById('changePhotoBtn'),
+        photoInput: document.getElementById('photoInput')
+    };
+
+    const roleMap = {1:"Покупець",2:"Контент-менеджер",3:"Менеджер",4:"Адміністратор"};
+    let userProfile = {};
+
+    const validators = {
+        nameRegex: /^[А-Яа-яЁёЇїІіЄєҐґA-Za-z'-]+$/,
+        emailRegex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        phoneRegex: /^(\+380\d{9}|\d{10})$/
+    };
+
+    function showError(input, msg){
+        let err = input.nextElementSibling;
+        if(err && err.classList.contains('field-error')) err.textContent = msg;
+        input.classList.add('error-input');
+        input.classList.remove('success-input');
+    }
+    function clearError(input){
+        let err = input.nextElementSibling;
+        if(err && err.classList.contains('field-error')) err.textContent = '';
+        input.classList.remove('error-input','success-input');
+    }
+    function validateField(input, type){
+        const val = input.value.trim();
+        switch(type){
+            case 'name':
+                if(!val) return showError(input,"Поле обов'язкове"),false;
+                if(!validators.nameRegex.test(val)) return showError(input,"Тільки букви"),false;
+                break;
+            case 'email':
+                if(!val) return showError(input,"Поле обов'язкове"),false;
+                if(!validators.emailRegex.test(val)) return showError(input,"Некоректний email"),false;
+                break;
+            case 'phone':
+                if(val && !validators.phoneRegex.test(val)) return showError(input,"Формат: +380XXXXXXXXX або 10 цифр"),false;
+                break;
+        }
+        clearError(input); input.classList.add('success-input'); return true;
+    }
+
+    // =================== 📥 Завантаження профілю ===================
+    async function loadProfile(){
+        try{
+            const res = await fetch('/api/me', {headers:{'Authorization':`Bearer ${token}`}});
+            const data = await res.json();
+            if(!data.success) throw new Error(data.message);
+
+            userProfile = data.user;
+            elements.userName.textContent = `${userProfile.firstName} ${userProfile.lastName}`;
+            elements.userEmail.textContent = userProfile.email||'-';
+            elements.userPhone.textContent = userProfile.phone||'-';
+            elements.userRole.textContent = roleMap[userProfile.roleId]||'Користувач';
+
+            const photoUrl = `/assets/uploads/user_${userProfile.userId}.jpg`;
+            const test = await fetch(photoUrl,{method:'HEAD'});
+            elements.profilePhoto.src = test.ok ? photoUrl : '../assets/default-avatar.jpg';
+
+        } catch(e){
+            alert("Помилка отримання профілю");
+            clearAuth();
+            window.location.href='/login.html';
+        }
+    }
+    await loadProfile();
+
+    // =================== ✏ Редагування ===================
+    elements.editProfileBtn.onclick = ()=>{
+        elements.editFormSection.style.display='block';
+        elements.firstNameInput.value=userProfile.firstName||'';
+        elements.lastNameInput.value=userProfile.lastName||'';
+        elements.emailInput.value=userProfile.email||'';
+        elements.phoneInput.value=userProfile.phone||'';
+    };
+    elements.cancelEditBtn.onclick=()=>elements.editFormSection.style.display='none';
+
+    // =================== 🚪 Logout ===================
+    function setupLogout(){
+        let btn=document.getElementById('logoutBtn');
+        if(btn) btn.onclick=e=>{
+            e.preventDefault();
+            if(confirm("Ви дійсно бажаєте вийти?")){
+                clearAuth(); location.href='/index.html';
+            }
+        };
+    }
+    function addLogoutButton(){
+        document.querySelectorAll('nav ul.menu').forEach(m=>{
+            if(!m.querySelector('#logoutBtn')) m.insertAdjacentHTML('beforeend','<li><a href="#" id="logoutBtn">Вийти</a></li>');
+        });
+        setupLogout();
+    }
+    addLogoutButton();
+
+    // =================== Валідація + Збереження ===================
+    [elements.firstNameInput,elements.lastNameInput,elements.emailInput,elements.phoneInput]
+        .forEach(i=>{
+            let t=i.id.includes('Name')?'name': i.id.includes('Email')?'email':'phone';
+            i.addEventListener('input',()=>validateField(i,t));
+        });
+
+    elements.profileForm.onsubmit=async e=>{
+        e.preventDefault();
+        if(!validateField(elements.firstNameInput,'name')||
+           !validateField(elements.lastNameInput,'name')||
+           !validateField(elements.emailInput,'email')||
+           !validateField(elements.phoneInput,'phone')) return;
+
+        const body={
+            firstName:elements.firstNameInput.value.trim(),
+            lastName:elements.lastNameInput.value.trim(),
+            email:elements.emailInput.value.trim(),
+            phone:elements.phoneInput.value.trim(),
+        };
+        try{
+            const res=await fetch('/api/user/update',{
+                method:'PUT',
+                headers:{'Authorization':`Bearer ${token}`,'Content-Type':'application/json'},
+                body:JSON.stringify(body)
+            });
+            const r=await res.json();
+            if(r.success){
+                alert('Профіль оновлено'); loadProfile();
+                elements.editFormSection.style.display='none';
+            } else alert(r.message);
+        }catch{ alert("Помилка сервера") }
+    };
+
+    // =================== Фото ===================
+    elements.changePhotoBtn.onclick=()=>elements.photoInput.click();
+    elements.photoInput.onchange=async e=>{
+        let file=e.target.files[0]; if(!file) return;
+        const fd=new FormData(); fd.append('photo',file);
+        try{
+            const res=await fetch('/api/user/photo',{method:'POST',headers:{'Authorization':`Bearer ${token}`},body:fd});
+            const r=await res.json();
+            if(r.success) elements.profilePhoto.src=r.photoPath+'?'+Date.now();
+            else alert(r.message);
+        }catch{ alert("Помилка завантаження фото") }
+    };
+});
+</script>
+
 </body>
 </html>
