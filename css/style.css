@@ -555,3 +555,104 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
+/* ================= CARD BUTTONS ================= */
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.details-link,
+.cart-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    color: #6b4226;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.details-link:hover,
+.cart-link:hover {
+    font-size: 18px;
+    color: #d2691e;
+}
+
+/* ================= MODAL ================= */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#modal-content {
+    background: #fff5f0;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal-content img {
+    width: 80%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#modal-content span {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: #d2691e;
+    transition: color 0.3s;
+}
+
+#modal-content span:hover {
+    color: #b85b1a;
+}
+
+/* ================= SEARCH & FILTERS ================= */
+.catalog-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.catalog-controls input,
+.catalog-controls select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #dcbfa6;
+    font-size: 16px;
+    outline: none;
+}
+
+.catalog-controls input:focus,
+.catalog-controls select:focus {
+    border-color: #d2691e;
+    box-shadow: 0 0 5px rgba(210,105,30,0.3);
+}
