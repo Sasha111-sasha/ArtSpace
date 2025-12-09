@@ -7,59 +7,181 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <div class="form-wrapper">
-    <!-- Форма входу -->
-    <div class="login-form" id="login">
-      <h2>Вхід</h2>
-      <form>
-        <label for="login-email">Електронна пошта:</label>
-        <input type="email" id="login-email" placeholder="Введіть email" required>
+<div class="form-wrapper">
+  <!-- Форма входу -->
+  <div class="login-form" id="login">
+    <h2>Вхід</h2>
+    <form id="loginForm">
+      <label for="login-email">Електронна пошта:</label>
+      <input type="email" id="login-email" placeholder="Введіть email" required>
 
-        <label for="login-password">Пароль:</label>
-        <input type="password" id="login-password" placeholder="Введіть пароль" required>
+      <label for="login-password">Пароль:</label>
+      <input type="password" id="login-password" placeholder="Введіть пароль" required>
 
-        <button type="submit">Увійти</button>
-
-        <p class="toggle">Немає акаунту? <a href="#" onclick="showRegister()">Зареєструйтесь</a></p>
-      </form>
-    </div>
-
-    <!-- Форма реєстрації -->
-    <div class="register-form" id="register">
-      <h2>Реєстрація</h2>
-      <form>
-        <label for="name">Ім’я:</label>
-        <input type="text" id="name" placeholder="Введіть ім’я" required>
-
-        <label for="surname">Прізвище:</label>
-        <input type="text" id="surname" placeholder="Введіть прізвище" required>
-
-        <label for="email">Електронна пошта:</label>
-        <input type="email" id="email" placeholder="Введіть email" required>
-
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" placeholder="Введіть пароль" required>
-
-        <label for="confirm">Підтвердіть пароль:</label>
-        <input type="password" id="confirm" placeholder="Повторіть пароль" required>
-
-        <button type="submit">Зареєструватися</button>
-
-        <p class="toggle">Вже маєте акаунт? <a href="#" onclick="showLogin()">Увійдіть</a></p>
-      </form>
-    </div>
+      <button type="submit">Увійти</button>
+      <p class="toggle">Немає акаунту? <a href="#" onclick="showRegister()">Зареєструйтесь</a></p>
+    </form>
   </div>
 
-  <script>
-    function showRegister() {
-      document.getElementById('login').style.display = 'none';
-      document.getElementById('register').style.display = 'block';
+  <!-- Форма реєстрації -->
+  <div class="register-form" id="register" style="display:none;">
+    <h2>Реєстрація</h2>
+    <form id="registerForm">
+      <label for="firstName">Ім’я:</label>
+      <input type="text" id="firstName" placeholder="Введіть ім’я" required>
+
+      <label for="lastName">Прізвище:</label>
+      <input type="text" id="lastName" placeholder="Введіть прізвище" required>
+
+      <label for="reg-email">Електронна пошта:</label>
+      <input type="email" id="reg-email" placeholder="Введіть email" required>
+
+      <label for="phone">Телефон:</label>
+      <input type="text" id="phone" placeholder="Введіть телефон" required>
+
+      <label for="reg-password">Пароль:</label>
+      <input type="password" id="reg-password" placeholder="Введіть пароль" required>
+
+      <label for="confirm-password">Підтвердіть пароль:</label>
+      <input type="password" id="confirm-password" placeholder="Повторіть пароль" required>
+
+      <button type="submit">Зареєструватися</button>
+      <p class="toggle">Вже маєте акаунт? <a href="#" onclick="showLogin()">Увійдіть</a></p>
+    </form>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+
+  // 🔹 Показати форму реєстрації
+  function showRegister() {
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('register').style.display = 'block';
+  }
+
+  // 🔹 Показати форму логіну
+  function showLogin() {
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+  }
+
+  // 🔹 Валідація імені
+  function validateName(name) {
+    return /^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ\s'-]{2,}$/.test(name);
+  }
+
+  // 🔹 Валідація email
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // 🔹 Валідація телефону
+  function validatePhone(phone) {
+    return /^(\+380\d{9}|\d{10})$/.test(phone);
+  }
+
+  // 🔹 Універсальний API-запит
+  async function apiRequest(url, options = {}) {
+    const config = {
+      headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+      ...options
+    };
+    const res = await fetch(url, config);
+    let json = {};
+    try { json = await res.json(); } catch {}
+    if (!res.ok) throw new Error(json.message || `HTTP ${res.status}`);
+    return json;
+  }
+
+  // ==============================
+  // 🔹 ЛОГІН
+  // ==============================
+  loginForm.addEventListener('submit', async e => {
+    e.preventDefault(); // ❌ блокуємо перезавантаження
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+
+    if (!email || !password) {
+      alert('Заповніть email та пароль');
+      return;
     }
 
-    function showLogin() {
-      document.getElementById('register').style.display = 'none';
-      document.getElementById('login').style.display = 'block';
+    if (!validateEmail(email)) {
+      alert('Невірний формат email');
+      return;
     }
-  </script>
+
+    try {
+      const data = await apiRequest('/api/login', { method: 'POST', body: JSON.stringify({ email, password }) });
+
+      if (data.success) {
+        // Зберігаємо токен і користувача
+        localStorage.setItem('artspace_token', data.token);
+        localStorage.setItem('artspace_user', JSON.stringify(data.user));
+
+        // Редирект за роллю
+        const rolePaths = {
+          1: '/html/user.html',
+          2: '/html/content-manager.html',
+          3: '/html/manager.html',
+          4: '/html/admin.html'
+        };
+        window.location.href = rolePaths[data.user.roleId] || '/index.html';
+      } else {
+        alert(data.message || 'Невірний логін або пароль');
+      }
+    } catch (err) {
+      alert(err.message || 'Помилка при вході');
+    }
+  });
+
+  // ==============================
+  // 🔹 РЕЄСТРАЦІЯ
+  // ==============================
+  registerForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const password = document.getElementById('reg-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // 🔹 Валідація полів
+    if (!validateName(firstName)) { alert('Дозволені лише літери, пробіли та дефіси'); return; }
+    if (!validateName(lastName)) { alert('Дозволені лише літери, пробіли та дефіси'); return; }
+    if (!validateEmail(email)) { alert('Невірний email'); return; }
+    if (phone && !validatePhone(phone)) { alert('Невірний номер телефону. Введіть +380XXXXXXXXX або 10 цифр'); return; }
+    if (!password || password.length < 6 || password.length > 12) { alert('Пароль має бути 6-12 символів'); return; }
+    if (password !== confirmPassword) { alert('Паролі не співпадають'); return; }
+
+    try {
+      const data = await apiRequest('/api/register', {
+        method: 'POST',
+        body: JSON.stringify({ firstName, lastName, email, phone, password, confirmPassword })
+      });
+
+      if (data.success) {
+        alert('Реєстрація успішна! Увійдіть.');
+        showLogin();
+        document.getElementById('login-email').value = email;
+        document.getElementById('login-email').focus();
+      } else {
+        alert(data.message || 'Помилка реєстрації');
+      }
+    } catch (err) {
+      alert(err.message || 'Помилка мережі');
+    }
+  });
+
+  // 🔹 Вікно доступне глобально
+  window.showLogin = showLogin;
+  window.showRegister = showRegister;
+});
+</script>
+
+
 </body>
 </html>
