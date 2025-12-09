@@ -3,53 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Інформаційна система онлайн-магазину картин "ArtSpace"</title>
+    <title>ArtSpace | Онлайн-магазин картин</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">"ArtSpace" - онлайн-магазин картин</div>
-        <nav>
-            <input type="checkbox" id="burger-toggle" class="burger-toggle">
-            <label for="burger-toggle" class="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <ul class="menu">
-                <li><a href="index.html">Головна</a></li>
-                <li><a href="catalog.html">Каталог картин</a></li>
-                <li><a href="login.html">Профіль</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="gallery">
-            <div class="card">
-                <img src="../assets/photo_2025-10-24_12-46-02.jpg" alt="Бузок">
-                <a href="#" class="cart-link">Додати в кошик</a>
-                <h3>Бузок</h3>
-            </div>
+<header>
+    <div class="logo">"ArtSpace" - онлайн-магазин картин</div>
+    <nav>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="menu">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="catalog.html">Каталог картин</a></li>
+            <li><a href="#" id="profileLink">Профіль</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <div class="card">
-                <img src="../assets/photo_2025-10-24_12-46-12.jpg" alt="Натюрморт із фруктами та келихом">
-
-                <a href="#" class="cart-link">Додати в кошик</a>
-                <h3>Натюрморт із фруктами та келихом</h3>
-            </div>
-
-            <div class="card">
-                <img src="../assets/photo_2025-10-24_12-46-18.jpg" alt="Літній пейзаж">
-
-                <a href="#" class="cart-link">Додати в кошик</a>
-                <h3>Літній пейзаж</h3>
-            </div>
+<main>
+    <div class="gallery">
+        <div class="card">
+            <img src="../assets/photo_2025-10-24_12-46-02.jpg" alt="Бузок">
+            <a href="#" class="cart-link">Додати в кошик</a>
+            <h3>Бузок</h3>
         </div>
-    </main>
-        <footer>
+        <div class="card">
+            <img src="../assets/photo_2025-10-24_12-46-12.jpg" alt="Натюрморт із фруктами та келихом">
+            <a href="#" class="cart-link">Додати в кошик</a>
+            <h3>Натюрморт із фруктами та келихом</h3>
+        </div>
+        <div class="card">
+            <img src="../assets/photo_2025-10-24_12-46-18.jpg" alt="Літній пейзаж">
+            <a href="#" class="cart-link">Додати в кошик</a>
+            <h3>Літній пейзаж</h3>
+        </div>
+    </div>
+</main>
+
+<footer>
     <div class="footer-content">
         <p class="footer-description">ArtSpace — онлайн-магазин картин.</p>
         <p class="footer-contact">Телефон: +380 99 123 45 67 | Email: info@artspace.com</p>
         <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
     </div>
 </footer>
+
+<script>
+// Обробка кнопки "Профіль"
+document.getElementById('profileLink').addEventListener('click', function(e){
+    e.preventDefault();
+    // Видаляємо токен та дані користувача при переході
+    localStorage.removeItem('artspace_token');
+    localStorage.removeItem('artspace_user');
+    // Перехід на сторінку входу
+    window.location.href = '/html/login.html';
+});
+</script>
+
+</body>
+</html>
