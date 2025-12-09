@@ -64,5 +64,68 @@
         <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
     </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('artspace_token');
+    const user = JSON.parse(localStorage.getItem('artspace_user') || '{}');
+    const roleId = user.roleId || 0;
+
+    function clearAuth() {
+        localStorage.removeItem('artspace_token');
+        localStorage.removeItem('artspace_user');
+    }
+
+    // Перевірка доступу
+    if (!token || ![3, 4].includes(roleId)) {
+        clearAuth();
+        alert('⛔ У вас немає доступу до цієї сторінки');
+        window.location.href = '/index.html';
+        return;
+    }
+
+    // Додавання кнопки "Вийти"
+    function addLogoutButton() {
+        const menus = document.querySelectorAll('nav ul.menu');
+        menus.forEach(menu => {
+            if (!menu.querySelector('#logoutBtn')) {
+                menu.insertAdjacentHTML('beforeend', '<li><a href="#" id="logoutBtn">Вийти</a></li>');
+            }
+        });
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', e => {
+                e.preventDefault();
+                if (confirm('Ви дійсно бажаєте вийти з акаунту?')) {
+                    clearAuth();
+                    window.location.href = '/index.html';
+                }
+            });
+        }
+    }
+
+    addLogoutButton();
+
+    // Блокування переходів на сторінки, якщо немає доступу
+    document.querySelectorAll('nav ul.menu a').forEach(link => {
+        link.addEventListener('click', e => {
+            const targetPage = link.getAttribute('href');
+            const pageRoles = {
+                "content-manager.html": [3, 4],
+                "manager.html": [2, 4],
+                "admin.html": [4]
+            };
+
+            if (pageRoles[targetPage] && !pageRoles[targetPage].includes(roleId)) {
+                e.preventDefault();
+                clearAuth();
+                alert('⛔ У вас немає доступу до цієї сторінки');
+                window.location.href = '/index.html';
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

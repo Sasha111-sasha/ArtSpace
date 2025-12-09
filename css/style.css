@@ -482,6 +482,105 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
 .delete-btn:hover {
   background-color: #c92432;
 }
+
+/* ================= ADMIN ================= */
+.admin-main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Статистика */
+.stats h2 {
+    color: #d2691e;
+    margin-bottom: 15px;
+}
+.stats-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    flex: 1;
+    min-width: 220px;
+    background: #fff5f0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.stat-card h3 {
+    color: #6b4226;
+    margin-bottom: 10px;
+}
+.stat-card p {
+    font-size: 24px;
+    color: #d2691e;
+    font-weight: bold;
+}
+
+/* Керування користувачами */
+.users-management h2 {
+    color: #d2691e;
+    margin-bottom: 15px;
+}
+.users-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.users-management th, .users-management td {
+    border: 1px solid #dcbfa6;
+    padding: 12px;
+    text-align: center;
+    color: #6b4226;
+}
+.users-management th {
+    background-color: #fff5f0;
+}
+.user-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Кнопки */
+.btn-edit, .btn-delete, .btn-add {
+    background-color: #d2691e;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 2px;
+}
+.btn-edit:hover { background-color: #b85b1a; transform: scale(1.05); }
+.btn-delete:hover { background-color: #8b4513; transform: scale(1.05); }
+.btn-add {
+    display: inline-block;
+    margin-top: 10px;
+}
+.btn-add:hover { background-color: #b85b1a; transform: scale(1.05); }
+
+/* Лог активності */
+.activity-log h2 {
+    color: #d2691e;
+    margin-bottom: 10px;
+}
+.activity-log ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.activity-log li {
+    margin-bottom: 6px;
+    color: #6b4226;
+}
 /* ================= MANAGER ================= */
 .manager-container {
     max-width: 1200px;
@@ -555,6 +654,10 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
+
+.new-order:hover { background-color: #d2691e; transform: scale(1.03); }
+
+
 /* ================= CARD BUTTONS ================= */
 .card-buttons {
     display: flex;
@@ -656,104 +759,9 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     border-color: #d2691e;
     box-shadow: 0 0 5px rgba(210,105,30,0.3);
 }
-/* ================= ADMIN ================= */
-.admin-main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
 
-/* Статистика */
-.stats h2 {
-    color: #d2691e;
-    margin-bottom: 15px;
-}
-.stats-cards {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.stat-card {
-    flex: 1;
-    min-width: 220px;
-    background: #fff5f0;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-.stat-card h3 {
-    color: #6b4226;
-    margin-bottom: 10px;
-}
-.stat-card p {
-    font-size: 24px;
-    color: #d2691e;
-    font-weight: bold;
-}
 
-/* Керування користувачами */
-.users-management h2 {
-    color: #d2691e;
-    margin-bottom: 15px;
-}
-.users-management table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 15px;
-}
-.users-management th, .users-management td {
-    border: 1px solid #dcbfa6;
-    padding: 12px;
-    text-align: center;
-    color: #6b4226;
-}
-.users-management th {
-    background-color: #fff5f0;
-}
-.user-thumb {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
 
-/* Кнопки */
-.btn-edit, .btn-delete, .btn-add {
-    background-color: #d2691e;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin: 2px;
-}
-.btn-edit:hover { background-color: #b85b1a; transform: scale(1.05); }
-.btn-delete:hover { background-color: #8b4513; transform: scale(1.05); }
-.btn-add {
-    display: inline-block;
-    margin-top: 10px;
-}
-.btn-add:hover { background-color: #b85b1a; transform: scale(1.05); }
-
-/* Лог активності */
-.activity-log h2 {
-    color: #d2691e;
-    margin-bottom: 10px;
-}
-.activity-log ul {
-    list-style: disc;
-    padding-left: 20px;
-}
-.activity-log li {
-    margin-bottom: 6px;
-    color: #6b4226;
-}
 .add-user-form {
   margin-top: 25px;
   padding: 25px;
@@ -819,3 +827,91 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
     font-size: 14px;
   }
 }
+.logout-btn {
+    background: #be8118;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.logout-btn:hover { background: #be8118; }
+
+
+/* ===== Універсальний стиль кнопок користувача ===== */
+.btn {
+    background: #f0a045;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #d98b32;
+    transform: scale(1.05);
+}
+.photo-btn-wrapper {
+    text-align: center;
+    margin-top: 10px; /* відступ від фото */
+}
+
+.btn-photo {
+    background: #f0a045;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-photo:hover {
+    background: #d98b32;
+    transform: scale(1.05);
+}
+.alert-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: #fff4e5;
+    border: 1px solid #ffa726;
+    color: #4e342e;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.profile-edit-form {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.profile-edit-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.profile-edit-form input[type="text"],
+.profile-edit-form input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+
+
