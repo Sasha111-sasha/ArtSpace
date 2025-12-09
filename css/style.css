@@ -482,3 +482,76 @@ button:hover, .btn:hover, .btn-edit:hover, .btn-add:hover {
 .delete-btn:hover {
   background-color: #c92432;
 }
+/* ================= MANAGER ================= */
+.manager-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #fff5f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.manager-container h2 {
+    color: #d2691e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.orders-table th, .orders-table td {
+    border: 1px solid #dcbfa6;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.orders-table th {
+    background-color: #d2691e;
+    color: white;
+    font-weight: bold;
+}
+
+.status.unpaid { color: #c0392b; font-weight: bold; }
+.status.paid { color: #27ae60; font-weight: bold; }
+.status.new { color: #f1c40f; font-weight: bold; }
+.status.in-progress { color: #e67e22; font-weight: bold; }
+.status.shipped { color: #2980b9; font-weight: bold; }
+.status.completed { color: #8e44ad; font-weight: bold; }
+
+.orders-table button {
+    margin: 2px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.orders-table .btn-edit { background-color: #d2691e; color: white; }
+.orders-table .btn-edit:hover { background-color: #b85b1a; transform: scale(1.05); }
+
+.orders-table .btn-add { background-color: #27ae60; color: white; }
+.orders-table .btn-add:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+.orders-table .btn-add:hover:not(:disabled) { transform: scale(1.05); }
+
+.orders-table .btn-delete { background-color: #c0392b; color: white; }
+.orders-table .btn-delete:hover { transform: scale(1.05); }
+
+.new-order {
+    background-color: #6b4226;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
