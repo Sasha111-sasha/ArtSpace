@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Адмін-панель | ArtSpace</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header>
@@ -13,6 +16,8 @@
       <ul class="menu">
         <li><a href="admin.html" class="active">Адмін-панель</a></li>
         <li><a href="index.html">Вийти</a></li>
+        <li><a href="/admin.html" class="active">Адмін-панель</a></li>
+        <li><a href="/index.html">Вийти</a></li>
       </ul>
     </nav>
   </header>
@@ -33,6 +38,8 @@
           <h3>Популярні картини</h3>
           <p>“Бузок”</p>
         </div>
+        <div class="stat-card"><h3>Замовлення</h3><p>85</p></div>
+        <div class="stat-card"><h3>Популярні картини</h3><p>“Бузок”</p></div>
       </div>
     </section>
 
@@ -82,6 +89,46 @@
         </tbody>
       </table>
       <button class="btn-add">Додати нового користувача</button>
+
+      <div class="main">
+        <h1>Список користувачів</h1>
+
+        <table class="user-table">
+          <thead>
+            <tr>
+            <th>ID</th>
+              <th>Ім’я</th>
+              <th>Прізвище</th>
+              <th>Email</th>
+              <th>Номер телефону</th>
+              <th>Роль</th>
+              <th>Дія</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody"></tbody>
+        </table>
+
+        <button id="toggleAddUserFormBtn">Додати нового користувача</button>
+
+<form id="addUserForm" class="add-user-form" style="display:none">
+  <input type="text" id="first_name" name="FirstName" placeholder="Ім’я" required />
+  <input type="text" id="last_name" name="LastName" placeholder="Прізвище" required />
+  <input type="email" id="email" name="Email" placeholder="Email" required />
+  <input type="text" id="phone_number" name="Phone" placeholder="Телефон" />
+  <input type="password" id="password" name="Password" placeholder="Пароль" required />
+
+  <select id="role_id" name="RoleId" required>
+    <option value="#">Обрати роль</option>
+    <option value="1">Покупець</option>
+    <option value="2">Контент-менеджер</option>
+    <option value="3">Менеджер</option>
+    <option value="4">Адміністратор</option>
+  </select>
+
+  <button type="submit">Створити користувача</button>
+</form>
+
+      </div>
     </section>
 
     <section class="activity-log">
@@ -101,5 +148,7 @@
       <p class="footer-copy">&copy; 2025 ArtSpace. Всі права захищені.</p>
     </div>
   </footer>
+
+  <script src="/public/script.js"></script>
 </body>
 </html>
