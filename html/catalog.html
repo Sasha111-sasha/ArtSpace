@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог картин - ArtSpace</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">ArtSpace</div>
+    <nav>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="menu">
+            <li><a href="catalog.html">Каталог картин</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="catalog-controls">
+        <input type="text" id="searchInput" placeholder="Пошук картин...">
+        <select id="filterSelect">
+            <option value="all">Всі</option>
+            <option value="landscape">Пейзаж</option>
+            <option value="still-life">Натюрморт</option>
+        </select>
+
+        <!-- Нові фільтри -->
+        <select id="priceFilter">
+            <option value="all">Всі ціни</option>
+            <option value="under-1500">До 1500 грн</option>
+            <option value="1500-2000">1500 - 2000 грн</option>
+            <option value="over-2000">Понад 2000 грн</option>
+        </select>
+
+        <select id="sizeFilter">
+            <option value="all">Всі розміри</option>
+            <option value="30x25">30x25</option>
+            <option value="40x60">40x60</option>
+            <option value="30x45">30x45</option>
+            <option value="50x50">50x50</option>
+        </select>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <!-- Карточки картин -->
+        <div class="card" data-category="still-life" data-price="1200" data-size="30x25">
+            <img src="../assets/photo_2025-10-24_12-46-02.jpg" alt="Бузок">
+            <h3>Бузок</h3>
+            <div class="card-buttons">
+                <a href="#" class="details-link" onclick="showModal({
+                    title: 'Бузок',
+                    img: '../assets/photo_2025-10-24_12-46-02.jpg',
+                    genre: 'Натюрморт',
+                    description: 'Ніжний весняний букет бузку у вазі.',
+                    price: '1 200 грн',
+                    size: '30x25'
+                })">Деталі</a>
+                <a href="#" class="cart-link">Додати в кошик</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="still-life" data-price="1800" data-size="40x60">
+            <img src="../assets/photo_2025-10-24_12-46-12.jpg" alt="Натюрморт із фруктами та келихом">
+            <h3>Натюрморт із фруктами та келихом</h3>
+            <div class="card-buttons">
+                <a href="#" class="details-link" onclick="showModal({
+                    title: 'Натюрморт із фруктами та келихом',
+                    img: '../assets/photo_2025-10-24_12-46-12.jpg',
+                    genre: 'Натюрморт',
+                    description: 'Класичний натюрморт з виноградом та вином.',
+                    price: '1 800 грн',
+                    size: '40x60'
+                })">Деталі</a>
+                <a href="#" class="cart-link">Додати в кошик</a>
+            </div>
+        </div>
+
+        <div class="card" data-category="landscape" data-price="2500" data-size="30x45">
+            <img src="../assets/photo_2025-10-24_12-46-18.jpg" alt="Літній пейзаж">
+            <h3>Літній пейзаж</h3>
+            <div class="card-buttons">
+                <a href="#" class="details-link" onclick="showModal({
+                    title: 'Літній пейзаж',
+                    img: '../assets/photo_2025-10-24_12-46-18.jpg',
+                    genre: 'Пейзаж',
+                    description: 'Світла картина з видом на зелену долину.',
+                    price: '2 500 грн',
+                    size: '30x45'
+                })">Деталі</a>
+                <a href="#" class="cart-link">Додати в кошик</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Модальне вікно для деталей -->
+<div id="modal">
+    <div id="modal-content">
+        <span onclick="closeModal()">&times;</span>
+        <table class="modal-table">
+            <tr>
+                <th>Фото</th>
+                <td><img id="modalImg" src="" alt=""></td>
+            </tr>
+            <tr>
+                <th>Назва</th>
+                <td id="modalTitle"></td>
+            </tr>
+            <tr>
+                <th>Жанр</th>
+                <td id="modalGenre"></td>
+            </tr>
+            <tr>
+                <th>Опис</th>
+                <td id="modalDescription"></td>
+            </tr>
+            <tr>
+                <th>Ціна</th>
+                <td id="modalPrice"></td>
+            </tr>
+            <tr>
+                <th>Розмір</th>
+                <td id="modalSize"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+function showModal(data) {
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalImg').src = data.img;
+    document.getElementById('modalGenre').innerText = data.genre;
+    document.getElementById('modalDescription').innerText = data.description;
+    document.getElementById('modalPrice').innerText = data.price;
+    document.getElementById('modalSize').innerText = data.size;
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+// Пошук і фільтри
+const searchInput = document.getElementById('searchInput');
+const filterSelect = document.getElementById('filterSelect');
+const priceFilter = document.getElementById('priceFilter');
+const sizeFilter = document.getElementById('sizeFilter');
+
+function applyFilters() {
+    const query = searchInput.value.toLowerCase();
+    const categoryValue = filterSelect.value;
+    const priceValue = priceFilter.value;
+    const sizeValue = sizeFilter.value;
+
+    document.querySelectorAll('.gallery .card').forEach(card => {
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        const desc = card.querySelector('.details-link').getAttribute('onclick').toLowerCase();
+        const price = parseInt(card.dataset.price);
+        const size = card.dataset.size;
+
+        let matches = (title.includes(query) || desc.includes(query)) &&
+                      (categoryValue === 'all' || card.dataset.category === categoryValue);
+
+        if (matches && priceValue !== 'all') {
+            if (priceValue === 'under-1500') matches = price < 1500;
+            else if (priceValue === '1500-2000') matches = price >= 1500 && price <= 2000;
+            else if (priceValue === 'over-2000') matches = price > 2000;
+        }
+
+        if (matches && sizeValue !== 'all') {
+            matches = sizeValue === size;
+        }
+
+        card.style.display = matches ? 'block' : 'none';
+    });
+}
+
+searchInput.addEventListener('input', applyFilters);
+filterSelect.addEventListener('change', applyFilters);
+priceFilter.addEventListener('change', applyFilters);
+sizeFilter.addEventListener('change', applyFilters);
+
+document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>
